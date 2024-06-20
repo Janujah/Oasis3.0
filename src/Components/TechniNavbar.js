@@ -103,7 +103,7 @@ function OrthoResourcesNavbar() {
           {isAuthenticated ? (
             <div className="relative px-4 py-2">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none w-full">
-                <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="User Profile" className="h-10 w-10 rounded-full" />
+                <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
                 <span className="text-gray-700">{username}</span>
               </button>
               {dropdownOpen && (
