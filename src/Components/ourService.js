@@ -3,6 +3,9 @@ import React from 'react';
 import ProfileCard from '../Components/profileCard';
 // import Navbar from '../components/Navbar';
 // import Footer from '../components/Footer';
+import Doctor from '../image/1711468277929.jpeg'
+import Nail from '../image/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png'
+
 
 function App() {
     return (
@@ -21,13 +24,13 @@ function App() {
                 <a href='/our-services/doctors' className="no-underline">
                     <ProfileCard 
                         specialty="Doctors"
-                        imageUrl="https://www.citizenshospitals.com/static/uploads/130789a4-764e-4ee3-88fe-68f9278452d6-1692966652977.png"
+                        imageUrl={Doctor}
                     />
                 </a>
                 <a href='/our-services/equipments' className="no-underline">
                     <ProfileCard 
                         specialty="Ortho Resources"
-                        imageUrl="https://media.licdn.com/dms/image/sync/D4D27AQHvkaRUOQr_BQ/articleshare-shrink_800/0/1711468277929?e=2147483647&v=beta&t=ZK3Q7sobdUcYNOuV6adPZjKfMIlqJ_V5Bp9QAn3qf8c"
+                        imageUrl={Nail}
                     />
                 </a>
             </div>

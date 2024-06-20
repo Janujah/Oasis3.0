@@ -77,7 +77,7 @@ export default function Example() {
           />
         </div>
         <h3 className="text-2xl font-semibold text-center mb-4" style={{color:'black', fontSize:'50px'}}><b>Sign Up</b></h3>
-        <p className="text-center text-sl mb-1" style={{color:'black'}}>Create your account, it's free and only takes a minute.</p>
+        <p className="text-center text-sl mb-1" style={{color:'black'}}>Create your account, it is free and only takes a minute.</p>
         
         <div className="mb-4">
           <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name</label>
@@ -110,7 +110,7 @@ export default function Example() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="userRole" className="block text-sm font-medium text-gray-700">You're here as a</label>
+          <label htmlFor="userRole" className="block text-sm font-medium text-gray-700">You are here as a</label>
           <select
             id="userRole"
             value={Role}

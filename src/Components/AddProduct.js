@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import {jwtDecode} from 'jwt-decode'; // Adjust import as needed
+import Image from 'next/image';
 
 const AddProduct = () => {
   const [productName, setProductName] = useState('');
@@ -123,7 +124,7 @@ const AddProduct = () => {
           </div>
           {imagePreview && (
             <div className="mt-4">
-              <img src={imagePreview} alt="Image Preview" className="w-full h-48 object-cover rounded-md" />
+              <Image src={imagePreview} alt="Image Preview" className="w-full h-48 object-cover rounded-md" />
             </div>
           )}
           <div>

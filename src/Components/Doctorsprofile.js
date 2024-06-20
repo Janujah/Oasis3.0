@@ -106,6 +106,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
+
 
 function ProfileDetailsPage() {
     const router = useRouter();
@@ -156,7 +158,7 @@ function ProfileDetailsPage() {
             <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
                 <h1 className="text-3xl font-bold text-center mb-6">{doctor.fullName}</h1>
                 <div className="flex justify-center mb-6">
-                    <img
+                    <Image
                         src={doctor.profileImage}
                         alt={doctor.fullName}
                         className="w-48 h-48 rounded-full object-cover"

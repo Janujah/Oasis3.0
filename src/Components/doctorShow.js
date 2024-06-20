@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 // import Nav from '../Components/navbar';
 import '../css/oasis.css';
+import Image from 'next/image';
 
 const DOCTORS_PER_PAGE = 10;
 
@@ -121,7 +122,7 @@ function DoctorPage() {
                 {currentDoctors.map(doctor => (
                     <Link href={`/doctor/${doctor._id}`} key={doctor._id}>
                         <div className="m-2 p-5 w-72 border border-gray-300 rounded-lg shadow-md">
-                            <img src={doctor.profileImage} alt={doctor.fullName} className="w-full h-60 object-cover rounded-t-lg" />
+                            <Image src={doctor.profileImage} alt={doctor.fullName} className="w-full h-60 object-cover rounded-t-lg" />
                             <h3 className="mt-2 text-xl font-bold">{doctor.fullName}</h3>
                             <p className="text-gray-600">{doctor.specialty}</p>
                             {/* {doctor.isVerified && <span className="block mt-1 text-green-600 font-bold">Verified</span>} */}

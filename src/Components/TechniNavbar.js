@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import {jwtDecode} from 'jwt-decode';
 import Image from 'next/image';
 import logo from '../Components/logo.png'; // Update the path as needed
+import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp'
 
 function OrthoResourcesNavbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -74,7 +75,7 @@ function OrthoResourcesNavbar() {
           {isAuthenticated ? (
             <div className="relative lg:ml-4">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none">
-                <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="User Profile" className="h-10 w-10 rounded-full" />
+                <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md z-20">

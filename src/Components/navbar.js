@@ -187,6 +187,7 @@ import {jwtDecode} from 'jwt-decode';
 import Image from 'next/image';
 import logo from './logo.png';
 import '../css/oasis.css'
+import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp'
 
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -246,7 +247,7 @@ const Navbar = () => {
           {isAuthenticated ? (
             <div className="relative">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none">
-                <img src='https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg' alt="User Profile" className="h-10 w-10 rounded-full" />
+                <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
@@ -279,8 +280,9 @@ const Navbar = () => {
           {isAuthenticated ? (
             <div className="relative">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none w-full px-4 py-2">
-                <img src='https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg' alt="User Profile" className="h-10 w-10 rounded-full" />
-                <span className="text-gray-700">{username}</span>
+              <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
+             
+      <span className="text-gray-700">{username}</span>
               </button>
               {dropdownOpen && (
                 <div className="mt-2 w-full bg-white rounded-md shadow-lg py-1 z-20">

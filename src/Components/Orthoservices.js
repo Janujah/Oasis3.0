@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 // import Nav from '../Components/technav';
 import {jwtDecode} from 'jwt-decode';  // Adjust the import statement as needed
+import Image from 'next/image';
 
 const PRODUCTS_PER_PAGE = 10;
 
@@ -74,7 +75,7 @@ const ProductCard = () => {
       <div className="flex flex-wrap justify-center">
         {currentProducts.map(product => (
           <div key={product._id} className="border border-gray-300 m-3 p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-            <img src={product.imageUrl} alt={product.productName} className="w-full h-48 object-cover mb-4" />
+            <Image src={product.imageUrl} alt={product.productName} className="w-full h-48 object-cover mb-4" />
             <h3 className="text-lg font-semibold mb-2">{product.productName}</h3>
             <p className="mb-2">Price: LKR {product.price}</p>
             {/* <button

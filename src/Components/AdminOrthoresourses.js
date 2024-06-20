@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Nav from '../Components/AdminNavbar'; // Ensure the component import matches the actual file name and path.
+import Image from 'next/image';
 
 const PRODUCTS_PER_PAGE = 10;
 
@@ -60,7 +61,7 @@ const AdminProductTable = () => {
           {currentProducts.map((product) => (
             <div key={product._id} className="bg-white p-4 rounded shadow-md">
               <h3 className="text-lg font-semibold mb-2 text-center">{product.productName}</h3>
-              <img src={product.imageUrl} alt={product.productName} className="w-full h-40 object-cover rounded mb-4" />
+              <Image src={product.imageUrl} alt={product.productName} className="w-full h-40 object-cover rounded mb-4" />
               <p className="text-gray-600 text-center">
                 <strong>Price:</strong> LKR {product.price}
               </p>

@@ -4,6 +4,8 @@ import Nav from '../Components/navbar';
 // import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {jwtDecode} from 'jwt-decode';
+import Image from 'next/image';
+
 // import ''; // Ensure this path is correct and CSS file includes necessary styles
 
 const PRODUCTS_PER_PAGE = 10;
@@ -90,7 +92,7 @@ function ProductPage() {
                 {currentProducts.map(product => (
                     <div key={product._id} className="m-2 border border-gray-300 p-5 w-72 rounded-lg shadow-md">
                         <div className="text-black no-underline">
-                            <img src={product.imageUrl} alt={product.productName} className="w-full h-60 object-cover rounded-t-lg" />
+                            <Image src={product.imageUrl} alt={product.productName} className="w-full h-60 object-cover rounded-t-lg" />
                             <h3 className="mt-2 text-xl font-bold h-13">{product.productName}</h3>
                             <p className="text-gray-600">Price: LKR {product.price}</p>
                         </div>

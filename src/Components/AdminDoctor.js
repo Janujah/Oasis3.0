@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Navbar from '../Components/AdminNavbar'; // Update the path as needed
+import Image from 'next/image';
 
 const UserTable = () => {
     const [users, setUsers] = useState([]);
@@ -238,7 +239,7 @@ const UserTable = () => {
                     {currentItems.map((user) => (
                         <div key={user._id} className="bg-white p-4 rounded shadow-md">
                             <h3 className="text-lg font-semibold mb-2 text-center">{user.fullName}</h3>
-                            <img src={user.profileImage} alt="Profile" className="w-full h-90 object-cover rounded mb-4" />
+                            <Image src={user.profileImage} alt="Profile" className="w-full h-90 object-cover rounded mb-4" />
                             <p className="text-gray-600 text-center"><strong>Email:</strong> {user.email}</p>
                             <p className="text-gray-600 text-center"><strong>Registered ID:</strong> {user.registeredId}</p>
                             <p className="text-gray-600 text-center"><strong>Working Hospitals:</strong> {user.workingHospitals}</p>

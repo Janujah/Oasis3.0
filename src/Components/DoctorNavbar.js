@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import {jwtDecode} from 'jwt-decode';
 import Image from 'next/image';
 import logo from '../Components/logo.png';
+import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp'
 
 function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -55,7 +56,7 @@ function Navbar() {
           {isAuthenticated ? (
             <div className="relative">
               <button ref={usernameRef} className="flex items-center space-x-2" onClick={toggleDropdown}>
-                <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="User Profile" className="h-10 w-10 rounded-full" />
+                <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg">
