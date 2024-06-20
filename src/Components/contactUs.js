@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
+import image from '../image/shutterstock_1753066349.webp'
 
 function ContactForm() {
     const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ function ContactForm() {
         <div className="flex justify-center items-center h-screen bg-gradient-to-b from-[#FFFCFC] to-[#AB9551]" >
             <form onSubmit={onSubmit} className="p-10 bg-white shadow-md rounded-lg w-full max-w-4xl flex flex-col md:flex-row items-center md:items-start" >
                 <div className="w-full md:w-1/2 flex justify-center md:justify-end mb-8 md:mb-0 md:mr-8">
-                    <Image src="https://i0.wp.com/practis.com/wp-content/uploads/2022/12/shutterstock_1753066349.jpeg?fit=1000%2C667&ssl=1" className="w-full h-96 object-cover rounded" alt="Contact Us" />
+                    <Image src={image} className="w-full h-96 object-cover rounded" alt="Contact Us" />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col items-center md:items-start">
                     <div className="w-full max-w-lg">
