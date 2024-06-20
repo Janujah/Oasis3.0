@@ -46,3 +46,63 @@ input {
     height: 35px;
     padding: 10px;
 }
+
+
+.wall-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .clock-face {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 5px solid #333;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+  .number {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .number-1 { top: 10px; left: 50%; transform: translateX(-50%); }
+  .number-2 { top: 30px; right: 30px; }
+  .number-3 { top: 50%; right: 10px; transform: translateY(-50%); }
+  .number-4 { bottom: 30px; right: 30px; }
+  .number-5 { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .number-6 { bottom: 30px; left: 30px; }
+  .number-7 { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .number-8 { bottom: 30px; left: 30px; }
+  .number-9 { top: 50%; left: 10px; transform: translateY(-50%); }
+  .number-10 { top: 30px; left: 30px; }
+  .number-11 { top: 10px; left: 50%; transform: translateX(-50%); }
+  .number-12 { top: 30px; right: 30px; }
+  
+  .digital-clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .time {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .weekday, .date {
+    font-size: 1rem;
+  }
+  
