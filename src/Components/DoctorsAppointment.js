@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from 'react';
-// import Navbar from '.';
-import{jwtDecode}from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 
 function UserTable() {
     const [users, setUsers] = useState([]);
@@ -41,6 +40,31 @@ function UserTable() {
         setCurrentPage(pageNumber);
     };
 
+    const markDocComplete = async (id) => {
+        try {
+            const response = await fetch(
+                `https://oasis-final-directory.onrender.com/consult/bookings/${id}/doc-complete`,
+                {
+                    method: "PATCH",
+                }
+            );
+            if (response.ok) {
+                const updatedBooking = await response.json();
+                setUsers((prevUsers) =>
+                    prevUsers.map((user) =>
+                        user._id === updatedBooking._id ? { ...user, isDocComplete: true } : user
+                    )
+                );
+            } else {
+                console.error("Failed to mark doctor as complete.");
+                alert("Failed to mark doctor as complete.");
+            }
+        } catch (error) {
+            console.error("Failed to mark doctor as complete:", error);
+            alert("Failed to mark doctor as complete.");
+        }
+    };
+
     const renderPageNumbers = () => {
         return [...Array(totalPages).keys()].map(number => (
             <button
@@ -58,21 +82,46 @@ function UserTable() {
         <div>
             {/* <Navbar /> */}
             <div className="container mx-auto p-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {currentItems.map(booking => (
-                        <div key={booking._id} className="bg-white p-6 rounded-lg shadow-lg">
-                            <h2 className="text-lg font-semibold mb-2">{booking.doctorName}</h2>
-                            <p><span className="font-semibold">Full Name:</span> {booking.fullName}</p>
-                            <p><span className="font-semibold">Gender:</span> {booking.gender}</p>
-                            <p><span className="font-semibold">Phone:</span> {booking.phone}</p>
-                            <p><span className="font-semibold">Consultation Reason:</span> {booking.consultationReason}</p>
-                            <p><span className="font-semibold">Preferred Date:</span> {new Date(booking.preferredDate).toLocaleDateString()}</p>
-                            <p><span className="font-semibold">Preferred Time:</span> {booking.preferredTime}</p>
-                            <p><span className="font-semibold">Preferred Language:</span> {booking.preferredLanguage}</p>
-                            <p><span className="font-semibold">Date:</span> {new Date(booking.createdAt).toLocaleDateString()}</p>
-                        </div>
-                    ))}
-                </div>
+                <table className="w-full table-auto border-collapse border border-gray-300">
+                    <thead>
+                        <tr className="bg-gray-100">
+                            <th className="border px-4 py-2">Doctor Name</th>
+                            <th className="border px-4 py-2">Full Name</th>
+                            <th className="border px-4 py-2">Gender</th>
+                            <th className="border px-4 py-2">Phone</th>
+                            <th className="border px-4 py-2">Consultation Reason</th>
+                            <th className="border px-4 py-2">Preferred Date</th>
+                            <th className="border px-4 py-2">Preferred Time</th>
+                            <th className="border px-4 py-2">Preferred Language</th>
+                            <th className="py-2 px-4 border-b">Admin Confirmation</th>
+                            <th className="border px-4 py-2">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentItems.map(booking => (
+                            <tr key={booking._id}>
+                                <td className="border px-4 py-2">{booking.doctorName}</td>
+                                <td className="border px-4 py-2">{booking.fullName}</td>
+                                <td className="border px-4 py-2">{booking.gender}</td>
+                                <td className="border px-4 py-2">{booking.phone}</td>
+                                <td className="border px-4 py-2">{booking.consultationReason}</td>
+                                <td className="border px-4 py-2">{new Date(booking.preferredDate).toLocaleDateString()}</td>
+                                <td className="border px-4 py-2">{booking.preferredTime}</td>
+                                <td className="border px-4 py-2">{booking.preferredLanguage}</td>
+                                <td className="py-2 px-4 border-b">
+                                    <button
+                                        onClick={() => markDocComplete(booking._id)}
+                                        className={`px-3 py-1 rounded ${booking.isDocComplete ? "bg-green-500 text-white" : "bg-gray-300"}`}
+                                        disabled={booking.isDocComplete}
+                                    >
+                                        {booking.isDocComplete ? "Complete" : "Mark Complete"}
+                                    </button>
+                                </td>
+                                <td className="border px-4 py-2">{new Date(booking.createdAt).toLocaleDateString()}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
                 <div className="flex justify-center mt-4">
                     {renderPageNumbers()}
                 </div>

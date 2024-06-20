@@ -92,7 +92,7 @@ const ProductCard = () => {
           <button
             key={index}
             onClick={() => setCurrentPage(index + 1)}
-            className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-[#0e0737] text-white' : 'bg-gray-200'}`}
           >
             {index + 1}
           </button>

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import logo from '@/signup/logo.png'; // Adjust the path as needed
 import '../css/oasis.css'
 import Image from 'next/image';
 import logo from '../Components/logo.png';
@@ -64,7 +63,7 @@ export default function Example() {
   };
 
   return (
-    <div id="container11">
+    <div>
         <Navbar/>
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100" id="container1">
       <form className="bg-white p-6 rounded shadow-md w-full max-w-md" onSubmit={handleSubmit} id="form">
@@ -72,7 +71,7 @@ export default function Example() {
           <Image 
           src={logo} 
           alt="Company Logo" 
-          className="h-12 w-12" 
+          // className="h-30 w-12" 
           id="logo"
           />
         </div>

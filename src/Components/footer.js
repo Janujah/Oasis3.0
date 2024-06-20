@@ -9,9 +9,9 @@ const Footer = () => {
           <p>Phone: +94 077 306 8569</p>
         </div>
         <ul className="flex flex-col items-center md:flex-row md:space-x-8">
-          <li><a href="/ourservices" className="text-black hover:text-blue-600">Our Services</a></li>
-          <li><a href="/doctors" className="text-black hover:text-blue-600">Doctors</a></li>
-          <li><a href="/equipment" className="text-black hover:text-blue-600">Ortho Resources</a></li>
+          <li><a href="/ourservices" className="text-black 0">Our Services</a></li>
+          <li><a href="/doctors" className="text-black ">Doctors</a></li>
+          <li><a href="/equipment" className="text-black ">Ortho Resources</a></li>
         </ul>
       </div>
       <div className="border-t border-gray-300 pt-4 mt-6">

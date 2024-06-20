@@ -47,8 +47,8 @@ function Navbar() {
   return (
     <div className="bg-white shadow-md fixed w-full z-10 top-0">
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8">
-        <Image src={logo} alt="Logo" className="h-12 w-12" />
-        <nav className="flex items-center space-x-4 md:space-x-8">
+      <Image src={logo} alt="Logo" width={150} height={50} />
+      <nav className="flex items-center space-x-4 md:space-x-8">
           <a className="text-black" href="/Doctors/home">Home</a>
           <a className="text-black" href="/Doctors/Appointment">Appointments</a>
           <a className="text-black" href="/Doctors/Contact-Us">Contact Us</a>

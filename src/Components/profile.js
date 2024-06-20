@@ -1,7 +1,5 @@
-// pages/user-table.js
 "use client"
 import React, { useState, useEffect } from 'react';
-// import Navbar from '../components/Navbar';
 import {jwtDecode} from 'jwt-decode';
 
 function OrderTable() {
@@ -50,7 +48,7 @@ function OrderTable() {
             <button 
                 key={number + 1} 
                 onClick={() => handlePageChange(number + 1)} 
-                className={`px-2 py-1 m-1 ${currentPage === number + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                className={`px-2 py-1 m-1 ${currentPage === number + 1 ? 'bg-[#0e0737] text-white' : 'bg-gray-200'}`}
                 disabled={currentPage === number + 1}
             >
                 {number + 1}
@@ -133,7 +131,7 @@ function ConsultationTable() {
             <button 
                 key={number + 1} 
                 onClick={() => handlePageChange(number + 1)} 
-                className={`px-2 py-1 m-1 ${currentPage === number + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                className={`px-2 py-1 m-1 ${currentPage === number + 1 ? 'bg-[#0e0737] text-white' : 'bg-gray-200'}`}
                 disabled={currentPage === number + 1}
             >
                 {number + 1}
@@ -155,6 +153,30 @@ function ConsultationTable() {
             ...prevData,
             [name]: value,
         }));
+    };
+
+    const markUserComplete = async (id) => {
+        try {
+            const response = await fetch(
+                `https://oasis-final-directory.onrender.com/consult/bookings/${id}/user-complete`,
+                {
+                    method: "PATCH",
+                }
+            );
+            if (response.ok) {
+                setConsultations(prevConsultations =>
+                    prevConsultations.map(consultation =>
+                        consultation._id === id ? { ...consultation, isUserComplete: true } : consultation
+                    )
+                );
+            } else {
+                console.error("Failed to mark user as complete.");
+                alert("Failed to mark user as complete.");
+            }
+        } catch (error) {
+            console.error("Failed to mark user as complete:", error);
+            alert("Failed to mark user as complete.");
+        }
     };
 
     const submitEditForm = async (event) => {
@@ -199,6 +221,7 @@ function ConsultationTable() {
                         <th className="border px-4 py-2">Preferred Date</th>
                         <th className="border px-4 py-2">Preferred Time</th>
                         <th className="border px-4 py-2">Preferred Language</th>
+                        <th className="py-2 px-4 border-b">Admin Confirmation</th>
                         <th className="border px-4 py-2">Date</th>
                     </tr>
                 </thead>
@@ -211,6 +234,15 @@ function ConsultationTable() {
                             <td className="border px-4 py-2">{new Date(consultation.preferredDate).toLocaleDateString()}</td>
                             <td className="border px-4 py-2">{consultation.preferredTime}</td>
                             <td className="border px-4 py-2">{consultation.preferredLanguage}</td>
+                            <td className="py-2 px-4 border-b">
+                                <button
+                                    onClick={() => markUserComplete(consultation._id)}
+                                    className={`px-3 py-1 rounded ${consultation.isUserComplete ? "bg-green-500 text-white" : "bg-gray-300"}`}
+                                    disabled={consultation.isUserComplete}
+                                >
+                                    {consultation.isUserComplete ? "Complete" : "Mark Complete"}
+                                </button>
+                            </td>
                             <td className="border px-4 py-2">{new Date(consultation.createdAt).toLocaleDateString()}</td>
                         </tr>
                     ))}
@@ -232,14 +264,14 @@ function UserTable() {
             <div className="toggle-buttons flex justify-center mt-4">
                 <button 
                     onClick={() => setShowOrders(true)} 
-                    className={`px-4 py-2 m-2 ${showOrders ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                    className={`px-4 py-2 m-2 ${showOrders ? 'bg-[#0e0737] text-white' : 'bg-gray-200'}`}
                     disabled={showOrders}
                 >
                     Show Orders
                 </button>
                 <button 
                     onClick={() => setShowOrders(false)} 
-                    className={`px-4 py-2 m-2 ${!showOrders ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                    className={`px-4 py-2 m-2 ${!showOrders ? 'bg-[#0e0737] text-white' : 'bg-gray-200'}`}
                     disabled={!showOrders}
                 >
                     Show Consultations

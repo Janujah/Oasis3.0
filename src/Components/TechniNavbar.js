@@ -65,12 +65,12 @@ function OrthoResourcesNavbar() {
           </button>
         </div>
         <nav className={`lg:flex lg:items-center ${menuOpen ? 'block' : 'hidden'}`}>
-          <a className="block text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/home">Home</a>
-          <a className="block text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Our-Services">Our Services</a>
-          <a className="block text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Orders">Ortho Resources</a>
-          <a className="block text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Contact-Us">Contact Us</a>
-          <a className="block text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Add-Product">
-            <button className="bg-indigo-600 text-white py-2 px-4 rounded-md">Add Product</button>
+          <a className="block text-gray-700 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/home">Home</a>
+          <a className="block text-gray-700 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Our-Services">Our Services</a>
+          <a className="block text-gray-700 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Orders">Ortho Resources</a>
+          <a className="block text-gray-700 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Contact-Us">Contact Us</a>
+          <a className="block text-gray-700 py-2 lg:py-0 lg:px-4" href="/Ortho-Technicians/Add-Product">
+            <button className="bg-[#0e0737] text-white py-2 px-4 rounded-md">Add Product</button>
           </a>
           {isAuthenticated ? (
             <div className="relative lg:ml-4">
@@ -85,8 +85,8 @@ function OrthoResourcesNavbar() {
               )}
             </div>
           ) : (
-            <a className="text-gray-700 hover:text-indigo-600 py-2 lg:py-0 lg:px-4" href="/login">
-              <button className="bg-indigo-600 text-white py-2 px-4 rounded-md">Login</button>
+            <a className="text-gray-700  py-2 lg:py-0 lg:px-4" href="/login">
+              <button className="bg-[#0e0737] text-white py-2 px-4 rounded-md">Login</button>
             </a>
           )}
         </nav>
@@ -98,7 +98,7 @@ function OrthoResourcesNavbar() {
           <a className="block text-gray-700 px-4 py-2" href="/Ortho-Techinicians/Orders">Ortho Resources</a>
           <a className="block text-gray-700 px-4 py-2" href="/Ortho-Techinicians/Contact-Us">Contact Us</a>
           <a className="block text-gray-700 px-4 py-2" href="/Ortho-Technicians/Add-Product">
-            <button className="bg-indigo-600 text-white w-full py-2 rounded-md">Add Product</button>
+            <button className="bg-[#0e0737] text-white w-full py-2 rounded-md">Add Product</button>
           </a>
           {isAuthenticated ? (
             <div className="relative px-4 py-2">
@@ -115,7 +115,7 @@ function OrthoResourcesNavbar() {
             </div>
           ) : (
             <a className="block text-gray-700 hover:text-indigo-600 px-4 py-2" href="/login">
-              <button className="bg-indigo-600 text-white w-full py-2 rounded-md">Login</button>
+              <button className="bg-[#0e0737] text-white w-full py-2 rounded-md">Login</button>
             </a>
           )}
         </div>

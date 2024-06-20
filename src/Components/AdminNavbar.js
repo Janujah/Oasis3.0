@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import { useRouter } from 'next/navigation';
+import {jwtDecode} from 'jwt-decode'; // Adjust import if necessary
 import Image from 'next/image';
 import logo from '../Components/logo.png'; // Adjust the path if necessary
 import Clock from './clock'; // Adjust the path if necessary
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const usernameRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem('auth-token');
@@ -49,7 +51,7 @@ const Navbar = () => {
   return (
     <div className="bg-white shadow-md p-4 flex justify-between items-center">
       <div className="flex items-center">
-        <Image src={logo} alt="Logo" width={50} height={50} className="" />
+        <Image src={logo} alt="Logo" width={140} height={50} className="" />
       </div>
       <button
         className="block sm:hidden focus:outline-none"
@@ -84,7 +86,7 @@ const Navbar = () => {
         {isAuthenticated ? (
           <div className="relative">
             <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 mt-2 sm:mt-0">
-              <img
+              <Image
                 src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
                 alt="User"
                 width={40}
@@ -100,7 +102,7 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <a href="/login" className="px-4 py-2 mt-2 sm:mt-0 bg-blue-500 text-white rounded hover:bg-blue-700">Login</a>
+          <a href="/login" className="px-4 py-2 mt-2 sm:mt-0 bg-[#0e0737] text-white rounded">Login</a>
         )}
       </nav>
     </div>

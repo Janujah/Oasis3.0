@@ -21,16 +21,16 @@ function App() {
                 </p>
             </div>
             <div className="flex flex-wrap justify-center mt-12 space-x-0 space-y-8 sm:space-x-8 sm:space-y-0">
-                <a href='/our-services/doctors' className="no-underline">
+                <a href='/doctor' className="no-underline">
                     <ProfileCard 
                         specialty="Doctors"
-                        imageUrl={Doctor}
+                        imageUrl={Nail}
                     />
                 </a>
-                <a href='/our-services/equipments' className="no-underline">
+                <a href='/Ortho-Resources' className="no-underline">
                     <ProfileCard 
                         specialty="Ortho Resources"
-                        imageUrl={Nail}
+                        imageUrl={Doctor}
                     />
                 </a>
             </div>
