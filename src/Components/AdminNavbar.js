@@ -4,6 +4,7 @@ import {jwtDecode} from 'jwt-decode'; // Adjust import if necessary
 import Image from 'next/image';
 import logo from '../Components/logo.png'; // Adjust the path if necessary
 import Clock from './clock'; // Adjust the path if necessary
+import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp'
 
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -87,7 +88,7 @@ const Navbar = () => {
           <div className="relative">
             <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 mt-2 sm:mt-0">
               <Image
-                src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+                src={user}
                 alt="User"
                 width={40}
                 height={40}
