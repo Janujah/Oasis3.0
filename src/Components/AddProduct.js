@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import {jwtDecode} from 'jwt-decode'; // Adjust import as needed
 import Image from 'next/image';
+import '../css/oasis.css'
 
 const AddProduct = () => {
   const [productName, setProductName] = useState('');
@@ -86,7 +87,7 @@ const AddProduct = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100" id='container1'>
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6">Add Product</h2>
         <form onSubmit={(e) => { e.preventDefault(); handleAddProduct(); }} className="space-y-4">
