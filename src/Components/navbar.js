@@ -1,13 +1,11 @@
-
-
 "use client"
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import Image from 'next/image';
 import logo from './logo.png';
-import '../css/oasis.css'
-import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp'
+import '../css/oasis.css';
+import user from '../image/depositphotos_137014128-stock-illustration-user-profile-icon.webp';
 
 const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -65,14 +63,15 @@ const Navbar = () => {
           <a className="text-black" href="/Ortho-Resources">Ortho Resources</a>
           <a className="text-black" href="/Contact-Us">Contact Us</a>
           {isAuthenticated ? (
-            <div className="relative">
+            <div className="relative flex items-center space-x-2">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none">
                 <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
+                <span className="text-gray-700">{username}</span>
               </button>
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
-                  <button onClick={handleProfileClick} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Profile: {username}</button>
-                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20" style={{marginTop:'100px'}}>
+                  <button onClick={handleProfileClick} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Details</button>
+                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100" >Logout</button>
                 </div>
               )}
             </div>
@@ -100,20 +99,19 @@ const Navbar = () => {
           {isAuthenticated ? (
             <div className="relative">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none w-full px-4 py-2">
-              <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
-             
-      <span className="text-gray-700">{username}</span>
+                <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
+                <span className="text-gray-700">{username}</span>
               </button>
               {dropdownOpen && (
                 <div className="mt-2 w-full bg-white rounded-md shadow-lg py-1 z-20">
-                  <button onClick={handleProfileClick} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Profile: {username}</button>
+                  <button onClick={handleProfileClick} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Details</button>
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>
                 </div>
               )}
             </div>
           ) : (
             <a className="block text-gray-700 hover:text-[#0e0737] px-4 py-2" href="/login">
-              <button className="bg-[#0e0737] text-white px-4 py-2 rounded-md w-full" id='button' >Login</button>
+              <button className="bg-[#0e0737] text-white px-4 py-2 rounded-md w-full" id='button'>Login</button>
             </a>
           )}
         </div>

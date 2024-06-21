@@ -76,10 +76,12 @@ function OrthoResourcesNavbar() {
             <div className="relative lg:ml-4">
               <button ref={usernameRef} onClick={toggleDropdown} className="flex items-center space-x-2 focus:outline-none">
                 <Image src={user} alt="User Profile" className="h-10 w-10 rounded-full" />
+                <span className="text-gray-700">{username}</span>
+
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md z-20">
-                  <button className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={handleProfileClick}>{username}</button>
+                  {/* <button className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={handleProfileClick}>{username}</button> */}
                   <button className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={handleLogout}>Logout</button>
                 </div>
               )}

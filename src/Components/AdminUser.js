@@ -58,7 +58,6 @@ function UserTable() {
                             <th className="px-4 py-2 border text-black bg-white">Name</th>
                             <th className="px-4 py-2 border text-black bg-white">Email</th>
                             <th className="px-4 py-2 border text-black bg-white">Role</th>
-                            <th className="px-4 py-2 border text-black bg-white">Password</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +66,6 @@ function UserTable() {
                                 <td className="px-4 py-2 border">{user.userName}</td>
                                 <td className="px-4 py-2 border">{user.email}</td>
                                 <td className="px-4 py-2 border">{user.Role}</td>
-                                <td className="px-4 py-2 border">{user.password}</td>
                             </tr>
                         ))}
                     </tbody>
