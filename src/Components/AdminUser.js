@@ -5,19 +5,17 @@ import Navbar from '../Components/AdminNavbar'; // Ensure the component import m
 function UserTable() {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(12); // This does not change, so no setter is needed.
+    const [itemsPerPage] = useState(10); // Adjusted items per page for example purposes.
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('https://oasis-final-directory.onrender.com/order/orders');
+                const response = await fetch('https://oasis-final-directory.onrender.com/SignUp/view ');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                // Sort users by orderDate in descending order
-                const sortedUsers = data.sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate));
-                setUsers(sortedUsers);
+                setUsers(data);
             } catch (error) {
                 console.error('Failed to fetch users:', error);
                 alert('Failed to load users.');
@@ -36,18 +34,6 @@ function UserTable() {
         setCurrentPage(pageNumber);
     };
 
-    const handlePreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
     const renderPageNumbers = () => {
         return [...Array(totalPages).keys()].map((number) => (
             <button
@@ -62,52 +48,31 @@ function UserTable() {
     };
 
     return (
-        <div>
+        <div className="container mx-auto p-4">
             <Navbar />
-            <div className="container mx-auto p-4">
-                <div className="overflow-x-auto">
-                    <table className="min-w-full bg-white border">
-                        <thead>
-                            <tr>
-                                <th className="px-4 py-2 border bg-[#0e0737] text-white text-center">Order #</th>
-                                <th className="px-4 py-2 border bg-[#0e0737] text-white text-center">Customer Name</th>
-                                <th className="px-4 py-2 border bg-[#0e0737] text-white text-center">Address</th>
-                                <th className="px-4 py-2 border bg-[#0e0737] text-white text-center">Phone</th>
-                                <th className="px-4 py-2 border bg-[#0e0737] text-white text-center">Date</th>
+            <div className="overflow-x-auto">
+                <table className="min-w-full bg-white border">
+                    <thead>
+                        <tr className="bg-blue-800 text-white">
+                            <th className="px-4 py-2 border text-black bg-white">Name</th>
+                            <th className="px-4 py-2 border text-black bg-white">Email</th>
+                            <th className="px-4 py-2 border text-black bg-white">Role</th>
+                            <th className="px-4 py-2 border text-black bg-white">Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {currentItems.map((user) => (
+                            <tr key={user._id} className="border-t">
+                                <td className="px-4 py-2 border">{user.userName}</td>
+                                <td className="px-4 py-2 border">{user.email}</td>
+                                <td className="px-4 py-2 border">{user.Role}</td>
+                                <td className="px-4 py-2 border">{user.password}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {currentItems.map((booking, index) => (
-                                <tr key={booking._id} className="border-t">
-                                    <td className="px-4 py-2 border text-center">{indexOfFirstItem + index + 1}</td>
-                                    <td className="px-4 py-2 border text-center">{booking.customerName}</td>
-                                    <td className="px-4 py-2 border text-center">{booking.address}</td>
-                                    <td className="px-4 py-2 border text-center">{booking.phoneNumber}</td>
-                                    <td className="px-4 py-2 border text-center">{new Date(booking.orderDate).toLocaleDateString()}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    <div className="mt-4 flex justify-center">
-                        <button
-                            onClick={handlePreviousPage}
-                            disabled={currentPage === 1}
-                            className={`mx-1 px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-300' : 'bg-[#0e0737] text-white'}`}
-                        >
-                            Previous
-                        </button>
-                        {renderPageNumbers()}
-                        <button
-                            onClick={handleNextPage}
-                            disabled={currentPage === totalPages}
-                            className={`mx-1 px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-300' : 'bg-[#0e0737] text-white'}`}
-                        >
-                            Next
-                        </button>
-                    </div>
-                    <div className="text-center mt-4">
-                        {`${indexOfFirstItem + 1}-${Math.min(indexOfLastItem, users.length)} of ${users.length} orders`}
-                    </div>
+                        ))}
+                    </tbody>
+                </table>
+                <div className="mt-4 flex justify-center">
+                    {renderPageNumbers()}
                 </div>
             </div>
         </div>
