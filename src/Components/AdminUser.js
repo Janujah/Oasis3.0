@@ -48,8 +48,9 @@ function UserTable() {
     };
 
     return (
-        <div className="container mx-auto p-4">
+        <div>
             <Navbar />
+        <div className="container mx-auto p-4">
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border">
                     <thead>
@@ -75,6 +76,7 @@ function UserTable() {
                     {renderPageNumbers()}
                 </div>
             </div>
+        </div>
         </div>
     );
 }
