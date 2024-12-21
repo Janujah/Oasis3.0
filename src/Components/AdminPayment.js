@@ -94,7 +94,7 @@ function PaymentTable() {
                                 <th className="px-6 py-2 text-gray-600">Description</th>
                                 <th className="px-6 py-2 text-gray-600">Receipt Email</th>
                                 <th className="px-6 py-2 text-gray-600">Status</th>
-                                <th className="px-6 py-2 text-gray-600">Created At</th>
+                                // <th className="px-6 py-2 text-gray-600">Created At</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,7 +107,7 @@ function PaymentTable() {
                                     <td className="px-6 py-2">{payment.description}</td>
                                     <td className="px-6 py-2">{payment.receipt_email}</td>
                                     <td className="px-6 py-2">{payment.status}</td>
-                                    <td className="px-6 py-2">{new Date(payment.created * 1000).toLocaleString()}</td>
+                                    // <td className="px-6 py-2">{new Date(payment.created * 1000).toLocaleString()}</td>
                                 </tr>
                             ))}
                         </tbody>
